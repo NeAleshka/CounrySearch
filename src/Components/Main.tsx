@@ -1,24 +1,23 @@
 import React from 'react'
-import Controls from "./Controls";
-import styled from "styled-components";
 import {Container} from "./Container";
+import Controls from "./Controls/Controls";
+import styled from "styled-components";
 
 
-const WrapperMain = styled.main`
-padding: 2rem 0;
-  @media(min-width: 800px){
+const Wrapper = styled.main`
+  padding: 2rem 0;
+  @media (min-width: 767px) {
     padding: 4rem 0;
   }
 `
 
-const Main = ({children}:any) => {
+const Main = ({children}: any) => {
     return (
-        <WrapperMain>
-    <Container>
-        {children}
-    </Container>
-        </WrapperMain>
-
+        <Container>
+            <Wrapper>
+                {children}
+            </Wrapper>
+        </Container>
     )
 }
 

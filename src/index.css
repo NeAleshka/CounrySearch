@@ -1,42 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
-* {
+
+*{
     box-sizing: border-box;
 }
 
-
-:root {
-    /*Typography*/
-    --family: "Nunito Sans", sans-serif;
-    --fs-sm: 14px;
-    --fs-md: 16px;
-    --fw-lg: 300;
-    --fw-norm: 600;
-    --fw-bold: 800;
-
-    /* Other */
-    --radius: 0.5rem
+:root{
+    /* Typography*/
+    --family:'Nunito Sans',serif-sans;
+    --fs-sm:14px;
+    --fs-md:16px;
+    --fw-light:300;
+    --fw-normal:600;
+    --fw-bold:800;
+    /* Other*/
+    --radius:0.5rem;
 }
 
+body[data-theme='Light']{
+    --color-text:hsl(200, 15%, 8%);
+    --color-bg:hsl(0, 0%, 98%);
+    --color-ui-base:hsl(0, 0%, 100%);
 
-body {
+}
+body[data-theme='Dark']{
+    --color-text:hsl(0, 0%, 100%);
+    --color-bg:hsl(207, 26%, 17%);
+    --color-ui-base:hsl(209, 23%, 22%)
+}
+
+body{
     margin: 0;
     font-family: var(--family);
-    color: var(--color-text);
-    background-color: var(--background-color);
-    font-weight: var(--fw-lg);
+    color:var(--color-text);
+    background-color: var(--color-bg);
+    font-weight: var(--fw-light);
 }
 
-body[data-theme='Light'] {
-    --color-text: hsl(200, 15%, 8%);
-    --background-color: hsl(0, 0%, 98%);
-    --color-ui-base:hsl(0, 0%, 100%);
-    --shadow:rgba(149,157,165,0.2)0px 8px 24px;
-}
-
-body[data-theme='Dark'] {
-    --color-text: hsl(0, 0%, 100%);
-    --background-color: hsl(207, 26%, 17%);
-    --color-ui-base:hsl(209, 23%, 22%);
-    --shadow:rgba(245,245,245,0.2)0px 0px 8px;
-}

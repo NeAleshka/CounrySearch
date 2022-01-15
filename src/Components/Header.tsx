@@ -1,47 +1,51 @@
 import React, {useEffect, useState} from 'react'
-import styled from 'styled-components'
 import {Container} from "./Container";
-import {IoMoon, IoSunny} from 'react-icons/io5'
+import styled from "styled-components";
+import {IoMoon,IoSunny}from 'react-icons/io5'
 
 const HeaderEl = styled.header`
-  box-shadow: var(--shadow);
-  background-color: var(--color-ui-base);
+background-color: var(--color-ui-base);
 `
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  color: var(--color-text);
   padding: 2rem 0;
+  font-size: var(--fs-md);
 `
-const HeaderTitle = styled.a.attrs({href: '/'})`
-  text-decoration: none;
+const HeaderTitle=styled.a.attrs({href:'/'})`
   color: var(--color-text);
-  font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
-`
-const ThemeSwitcher = styled.div`
   cursor: pointer;
-  color: var(--color-text);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-bold);
+  text-decoration: none;
 `
+const ThemeSwitcher=styled.div`
+  color: var(--color-text);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+`
+const LightMode='Light'
+const DarkMode='Dark'
 
 const Header = () => {
-    const [theme, setTheme] = useState('Light')
-    useEffect(() => {
-        document.body.setAttribute('data-theme', theme)
-    }, [theme])
-    const ToggleSwitcher = () => {
-        setTheme(theme === 'Light' ? 'Dark' : 'Light')
+    const [theme,setTheme]=useState(LightMode)
+    useEffect(()=>{
+        document.body.setAttribute("data-theme",theme)
+    },[theme])
+
+    const toggleSwitcher = () => {
+      setTheme(theme===LightMode?DarkMode:LightMode)
     }
 
     return (
         <HeaderEl>
             <Container>
                 <Wrapper>
-                    <HeaderTitle>Where in the World?</HeaderTitle>
-                    <ThemeSwitcher onClick={ToggleSwitcher}>
-                        {theme === 'Light' ? <IoSunny color={'black'} size={'14px'}/> : <IoMoon/>} <span
-                        style={{marginLeft: '5px'}}>{theme} Theme</span></ThemeSwitcher>
+                    <HeaderTitle>Where in the World? </HeaderTitle>
+                    <ThemeSwitcher onClick={toggleSwitcher}>
+                        {theme===LightMode?<IoSunny/>:<IoMoon/>}
+                        <span style={{marginLeft:'0.5rem'}}>{theme} Theme</span>
+                    </ThemeSwitcher>
                 </Wrapper>
             </Container>
         </HeaderEl>
