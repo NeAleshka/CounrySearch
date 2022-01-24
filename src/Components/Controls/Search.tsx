@@ -16,7 +16,8 @@ const InputContainer = styled.label`
   background-color: var(--color-ui-base);
   padding: 1rem 2rem;
   width: 100%;
-  @media (min-width: 767px) {
+  margin-bottom: 20px;
+  @media (min-width: 766px) {
     margin-bottom: 0;
     width: 300px;
   }
@@ -31,8 +32,9 @@ const InputSearch = styled.input.attrs({
   border: none;
   background-color: var(--color-ui-base);
   color: var(--color-text);
-  @media (min-width: 767px) {
-  width: 260px;
+  width: 100%;
+  @media (min-width: 766px) {
+  width: 300px;
 }
 `
 

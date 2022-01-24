@@ -9,7 +9,8 @@ import { SelectCountry} from "./SelectCountry";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  @media (min-width: 800px) {
+  align-items: flex-start;
+  @media (min-width: 766px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -30,7 +31,8 @@ const Controls = () => {
     return (
         <Wrapper>
             <Search search={search} setSearch={setSearch}/>
-            <SelectCountry options={option}/>
+            <SelectCountry options={option} placeholder='Filter by Region' isClearable
+            isSearchable={false}/>
         </Wrapper>
 
     )
