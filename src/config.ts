@@ -5,3 +5,7 @@ export const ALL_COUNTRIES=`${BASE_URL}all?fields=name,capital,population,flag,r
 export const searchByCountry = (nameCountry:string) => `${BASE_URL}name/${nameCountry}`
 
 export const filterByCode = (codes:string[]) =>`${BASE_URL}alpha?codes=${codes.join(',')}`
+
+export const Get_Clicked_Country= (countyName?: string)=> {
+    return`${BASE_URL}name/${countyName}?fields=name,capital,population,flag,region,nativeName,subregion,topLevelDomain,currencies,languages`
+}

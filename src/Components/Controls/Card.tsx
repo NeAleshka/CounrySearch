@@ -1,9 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import {InfoType} from "../../App";
+import {InfoType} from "../../pages/HomePage";
+import {useNavigate} from "react-router";
+import {Outlet} from "react-router-dom";
+
 
 const Wrapper = styled.article`
-
+  transition: 1s;
+  :hover{
+    transform: scale(1.2);
+    background-color: var(--card-hover);
+  }
   border-radius: var(--radius);
   background-color: var(--color-ui-base);
   cursor: pointer;
@@ -49,11 +56,14 @@ export type CardBodyType = {
     img: string
     countryName: string,
     info: InfoType[]
+    onClickCard:()=>void
 }
 
 const Card = (props: CardBodyType) => {
+
+
     return (
-        <Wrapper /*onClick={props.onClickCard}*/ >
+        <Wrapper onClick={props.onClickCard}>
             <CardImage src={props.img}/>
             <CardBody>
                 <CardTitle>{props.countryName}</CardTitle>
@@ -65,6 +75,7 @@ const Card = (props: CardBodyType) => {
                     ))}
                 </CardList>
             </CardBody>
+            <Outlet/>
         </Wrapper>
     )
 }

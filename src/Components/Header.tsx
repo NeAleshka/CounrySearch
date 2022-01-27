@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Container} from "./Container";
 import styled from "styled-components";
 import {IoMoon,IoSunny}from 'react-icons/io5'
+import {Outlet} from 'react-router-dom'
 
 const HeaderEl = styled.header`
 background-color: var(--color-ui-base);
@@ -38,17 +39,21 @@ const Header = () => {
     }
 
     return (
-        <HeaderEl>
-            <Container>
-                <Wrapper>
-                    <HeaderTitle>Where in the World? </HeaderTitle>
-                    <ThemeSwitcher onClick={toggleSwitcher}>
-                        {theme===LightMode?<IoSunny/>:<IoMoon/>}
-                        <span style={{marginLeft:'0.5rem'}}>{theme} Theme</span>
-                    </ThemeSwitcher>
-                </Wrapper>
-            </Container>
-        </HeaderEl>
+        <>
+            <HeaderEl>
+                <Container>
+                    <Wrapper>
+                        <HeaderTitle>Where in the World? </HeaderTitle>
+                        <ThemeSwitcher onClick={toggleSwitcher}>
+                            {theme===LightMode?<IoSunny/>:<IoMoon/>}
+                            <span style={{marginLeft:'0.5rem'}}>{theme} Theme</span>
+                        </ThemeSwitcher>
+                    </Wrapper>
+                </Container>
+            </HeaderEl>
+        <Outlet/>
+        </>
+
     )
 }
 
