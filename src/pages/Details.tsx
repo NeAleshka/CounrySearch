@@ -128,6 +128,7 @@ const Details = () => {
     const [country, setCountry] = useState<CountryForDetails[]>([])
     const [borderCountry, setBorderCountry] = useState<BordersType[]>([])
 
+
     useEffect(() => {
         axios.get<CountryForDetails[]>(Get_Clicked_Country(countyName)).then(data => {
             setCountry(data.data)
@@ -203,7 +204,8 @@ const Details = () => {
                                         <span style={styleDisruptionTitle}>Borders Countries: </span>
                                       <Meta>
                                           {
-                                              borderCountry.map && borderCountry.map((m, index) => (<BorderCountry onClick={() => nav(`/country/${m.name}`)} key={m.name}>{m.name}
+                                              !borderCountry.length?<span>Not Borders Countries</span>:
+                                               borderCountry.map((m, index) => (<BorderCountry onClick={() => nav(`/country/${m.name}`)} key={m.name}>{m.name}
                                               </BorderCountry>))
                                           }
                                       </Meta>
