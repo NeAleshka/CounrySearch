@@ -34,16 +34,12 @@ type ControlsType = {
 
 const Controls = (props: ControlsType) => {
     const [search, setSearch] = useState('')
-    const [region, setRegion] = useState({
-        value: '',
-        label: ''
-    })
-
+    const [region, setRegion] = useState({value: '', label: ''})
 
     useEffect(() => {
         props.handlerSearch(search, region?.value ?? '')
-    }, [search, region])
 
+    }, [search, region])
 
     return (
         <Wrapper>

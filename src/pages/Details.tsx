@@ -88,6 +88,9 @@ const BackButton = styled.button`
   font-family: var(--family);
   font-size: var(--fs-sm);
   font-weight: var(--fw-normal);
+  :hover{
+    background-color: var(--card-hover);
+  }
 `
 const styleDisruptionTitle = {
     marginRight: '0.3rem',
@@ -156,7 +159,7 @@ const Details = () => {
                 country?.map(el => {
                         return <>
                             <BackButton onClick={() => navigation(-1)}><IoArrowBackSharp/> <span
-                                style={{marginLeft: '5px'}}>Back</span> </BackButton>
+                                style={{marginLeft: '5px',cursor:'pointer'}}>Back</span> </BackButton>
                             <DetailsCard>
                                 <CountryImage src={el.flag}/>
                                 <CardInformationWrapper>
@@ -205,7 +208,7 @@ const Details = () => {
                                       <Meta>
                                           {
                                               !borderCountry.length?<span>Not Borders Countries</span>:
-                                               borderCountry.map((m, index) => (<BorderCountry onClick={() => nav(`/country/${m.name}`)} key={m.name}>{m.name}
+                                               borderCountry.map((m) => (<BorderCountry onClick={() => nav(`/country/${m.name}`)} key={m.name}>{m.name}
                                               </BorderCountry>))
                                           }
                                       </Meta>
