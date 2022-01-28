@@ -1,11 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import axios from "axios";
-import {ALL_COUNTRIES} from "../config";
+import React from 'react'
 import List from "../Components/List";
 import Card from "../Components/Controls/Card";
 import Controls from "../Components/Controls/Controls";
 import {useNavigate} from "react-router";
-import {v1} from "uuid";
 import {getCountryType} from "../App";
 
 export type InfoType = {

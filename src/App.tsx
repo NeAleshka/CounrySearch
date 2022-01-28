@@ -4,7 +4,7 @@ import Main from "./Components/Main";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import Details from "./pages/Details";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 import axios from "axios";
 import {ALL_COUNTRIES} from "./config";
 
@@ -49,7 +49,7 @@ function App() {
     // console.log(filteredCountries)
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Header/>
             <Main>
                 <Routes>
@@ -58,7 +58,7 @@ function App() {
                     <Route path='*' element={<NotFound/>}/>
                 </Routes>
             </Main>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
