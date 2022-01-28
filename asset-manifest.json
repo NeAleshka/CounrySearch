@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CounrySearch/static/css/main.f5d586fd.css",
+    "main.js": "/CounrySearch/static/js/main.5a005e0e.js",
+    "index.html": "/CounrySearch/index.html",
+    "main.f5d586fd.css.map": "/CounrySearch/static/css/main.f5d586fd.css.map",
+    "main.5a005e0e.js.map": "/CounrySearch/static/js/main.5a005e0e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5d586fd.css",
+    "static/js/main.5a005e0e.js"
+  ]
+}
