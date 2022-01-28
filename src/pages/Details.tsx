@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useNavigate, useParams} from "react-router";
-import {Get_Clicked_Country} from "../config";
+import {filterByCode, Get_Clicked_Country} from "../config";
 import styled from "styled-components";
 import {IoArrowBackSharp} from "react-icons/io5";
 
@@ -22,11 +22,18 @@ type CountryForDetails = {
     name: string
     population: number
     region: string
+    borders: string[]
+}
+type CurrenciesType = {
+    code: string
+    name: string
+    symbol: string
+}
+type BordersType = {
+    name: string
 }
 
-
 const WrapperCard = styled.div`
-  //width: 1500px;
   padding: 2rem 3rem;
 `
 const DetailsCard = styled.div`
@@ -45,6 +52,7 @@ const CountryImage = styled.img`
 const CardInformationWrapper = styled.div`
   padding-top: 2rem;
   padding-left: 10rem;
+  height: 250px;
   @media (max-width: 1360px) {
     padding-left: 7rem;
   }
@@ -63,7 +71,7 @@ const CardInformation = styled.div`
   width: 700px;
   line-height: 1.5rem;
   @media (max-width: 1130px) {
-    height: 400px;
+    height: 250px;
   }
 `
 const BackButton = styled.button`
@@ -81,27 +89,55 @@ const BackButton = styled.button`
   font-size: var(--fs-sm);
   font-weight: var(--fw-normal);
 `
-type CurrenciesType = {
-    code: string
-    name: string
-    symbol: string
+const styleDisruptionTitle = {
+    marginRight: '0.3rem',
+    fontWeight: 'var(--fw-bold)'
 }
+const Meta=styled.div`
+@media (max-width: 1000px){
+  @media(max-width: 1000px){
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+`
+const BordersGroup = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+ 
+`
 
+const BorderCountry = styled.button`
+  background-color: var(--color-ui-base);
+  box-shadow: var(--shadow);
+  color: var(--color-text);
+  border: none;
+  margin-left: 10px;
+  height: 30px;
+  cursor: pointer;
+  :hover {
+    background-color: var(--card-hover);
+  }
+  
+`
 
 const Details = () => {
     const {countyName} = useParams()
     const navigation = useNavigate()
-    const [country, setCountry] = useState<CountryForDetails[]>()
+    const [country, setCountry] = useState<CountryForDetails[]>([])
+    const [borderCountry, setBorderCountry] = useState<BordersType[]>([])
+
     useEffect(() => {
         axios.get<CountryForDetails[]>(Get_Clicked_Country(countyName)).then(data => {
             setCountry(data.data)
+            axios.get<BordersType[]>(filterByCode(data.data[0].borders)).then(r => {
+                setBorderCountry(r.data)
+            })
         })
     }, [countyName])
 
-    const styleDisruptionTitle = {
-        marginRight: '0.3rem',
-        fontWeight: 'var(--fw-bold)'
-    }
+    const nav= useNavigate()
 
     const [isMobile, setIsMobile] = useState(false)
     window.addEventListener("resize", () => {
@@ -111,6 +147,7 @@ const Details = () => {
             setIsMobile(false)
         }
     });
+
 
     return (
         <WrapperCard>
@@ -153,8 +190,7 @@ const Details = () => {
                                         </span>
                                         <span>
                                             <b style={{
-                                                marginRight: '0.3rem',
-                                                fontWeight: 'var(--fw-bold)'
+                                                marginRight: '0.3rem', fontWeight: 'var(--fw-bold)'
                                             }}> Languages:</b>
                                             {el.languages.map(({name}, index) => (
                                                 <span key={name} style={{marginRight: '0.3rem'}}>
@@ -163,14 +199,17 @@ const Details = () => {
                                             ))}
                                         </span>
                                     </CardInformation>
+                                    <BordersGroup>
+                                        <span style={styleDisruptionTitle}>Borders Countries: </span>
+                                      <Meta>
+                                          {
+                                              borderCountry.map((m, index) => (<BorderCountry onClick={() => nav(`/country/${m.name}`)} key={m.name}>{m.name}
+                                              </BorderCountry>))
+                                          }
+                                      </Meta>
+                                    </BordersGroup>
                                 </CardInformationWrapper>
-                            </DetailsCard></>
-
-                    }
-                )
-            }
-
-
+                            </DetailsCard></>})}
         </WrapperCard>
 
     );

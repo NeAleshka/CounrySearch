@@ -6,31 +6,25 @@ import Card from "../Components/Controls/Card";
 import Controls from "../Components/Controls/Controls";
 import {useNavigate} from "react-router";
 import {v1} from "uuid";
+import {getCountryType} from "../App";
 
 export type InfoType = {
     title: string
     description: string
 }
-export type getCountryType = {
-    capital: string
-    flag: string
-    name: string
-    population: number
-    region: string
+export type getCountryHPType = {
+    countries:getCountryType[]
+    handlerSearch:(search: string, region: string)=>void
 }
 
-const HomePage = () => {
-    const [countries, setCountries] = useState<getCountryType[]>([])
-    useEffect(() => {
-        axios.get<getCountryType[]>(ALL_COUNTRIES).then(({data}) => setCountries(data))
-    }, [])
+const HomePage = (props:getCountryHPType) => {
 
     const nav = useNavigate()
     return (
         <>
-            <Controls/>
+            <Controls handlerSearch={props.handlerSearch}/>
             <List>
-                {countries.map(country => {
+                {props.countries.map(country => {
                     const countryInfo: InfoType[] = [
                         {
                             title: 'Population',
@@ -49,13 +43,7 @@ const HomePage = () => {
                                  info={countryInfo}
                                  img={country.flag}
                                  countryName={country.name}
-                                 onClickCard={() => nav(`/country/${country.name}`,
-                                     {
-                                         state: {
-                                             name: country.name,
-                                             population: country.population,
-                                         }
-                                     })}/>
+                                 onClickCard={() => nav(`/country/${country.name}`)}/>
                 })}
             </List>
         </>
