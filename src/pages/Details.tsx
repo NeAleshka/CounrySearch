@@ -147,7 +147,7 @@ const Details = () => {
             setIsMobile(false)
         }
     });
-
+    console.log(borderCountry)
 
     return (
         <WrapperCard>
@@ -203,7 +203,7 @@ const Details = () => {
                                         <span style={styleDisruptionTitle}>Borders Countries: </span>
                                       <Meta>
                                           {
-                                              borderCountry.map((m, index) => (<BorderCountry onClick={() => nav(`/country/${m.name}`)} key={m.name}>{m.name}
+                                              borderCountry.map && borderCountry.map((m, index) => (<BorderCountry onClick={() => nav(`/country/${m.name}`)} key={m.name}>{m.name}
                                               </BorderCountry>))
                                           }
                                       </Meta>

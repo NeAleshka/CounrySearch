@@ -3,6 +3,7 @@ import {Container} from "./Container";
 import styled from "styled-components";
 import {IoMoon,IoSunny}from 'react-icons/io5'
 import {Outlet} from 'react-router-dom'
+import {useNavigate} from "react-router";
 
 const HeaderEl = styled.header`
 background-color: var(--color-ui-base);
@@ -14,11 +15,10 @@ const Wrapper = styled.div`
   padding: 2rem 0;
   font-size: var(--fs-md);
 `
-const HeaderTitle=styled.a.attrs({href:'/'})`
+const HeaderTitle=styled.div`
   color: var(--color-text);
   font-weight: var(--fw-bold);
   cursor: pointer;
-  text-decoration: none;
 `
 const ThemeSwitcher=styled.div`
   color: var(--color-text);
@@ -38,12 +38,17 @@ const Header = () => {
       setTheme(theme===LightMode?DarkMode:LightMode)
     }
 
+    const navigate = useNavigate()
+    const headerTitleClickHandler = () => {
+        navigate("/")
+    }
+
     return (
         <>
             <HeaderEl>
                 <Container>
                     <Wrapper>
-                        <HeaderTitle>Where in the World? </HeaderTitle>
+                        <HeaderTitle onClick={headerTitleClickHandler}>Where in the World? </HeaderTitle>
                         <ThemeSwitcher onClick={toggleSwitcher}>
                             {theme===LightMode?<IoSunny/>:<IoMoon/>}
                             <span style={{marginLeft:'0.5rem'}}>{theme} Theme</span>
