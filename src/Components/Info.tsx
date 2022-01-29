@@ -16,7 +16,7 @@ const CardInformation = styled.div`
   width: 700px;
   line-height: 1.5rem;
   @media (max-width: 1130px) {
-    height: 250px;
+    height: 270px;
   }
 `
 type InfoType = {
