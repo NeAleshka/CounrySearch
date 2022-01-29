@@ -38,7 +38,7 @@ const Controls = (props: ControlsType) => {
 
     useEffect(() => {
         props.handlerSearch(search, region?.value ?? '')
-        // eslint-disable-next-line 
+        // eslint-disable-next-line
     }, [search, region])
 
     return (

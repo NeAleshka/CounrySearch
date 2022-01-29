@@ -38,7 +38,7 @@ const Info = ({info}: InfoType) => {
                 <b style={styleDisruptionTitle}> Native Name:</b> {info.nativeName}
                                         </span>
             <span>
-                <b style={styleDisruptionTitle}> Population:</b> {info.population}
+                <b style={styleDisruptionTitle}> Population:</b> {info.population.toLocaleString()}
                                         </span>
             <span>
                 <b style={styleDisruptionTitle}> Region:</b> {info.region}
