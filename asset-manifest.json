@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/CounrySearch/static/css/main.f5d586fd.css",
-    "main.js": "/CounrySearch/static/js/main.ffeab100.js",
+    "main.js": "/CounrySearch/static/js/main.adb0933a.js",
     "index.html": "/CounrySearch/index.html",
     "main.f5d586fd.css.map": "/CounrySearch/static/css/main.f5d586fd.css.map",
-    "main.ffeab100.js.map": "/CounrySearch/static/js/main.ffeab100.js.map"
+    "main.adb0933a.js.map": "/CounrySearch/static/js/main.adb0933a.js.map"
   },
   "entrypoints": [
     "static/css/main.f5d586fd.css",
-    "static/js/main.ffeab100.js"
+    "static/js/main.adb0933a.js"
   ]
 }
