@@ -55,7 +55,9 @@ const Info = ({info}: InfoType) => {
                 <b style={styleDisruptionTitle}> Top Level Domain:</b> {info.topLevelDomain.map(el => el)}
             </span>
             <span>
-                <b style={styleDisruptionTitle}> Currencies:</b> {info.currencies.map(el => el.name)}
+                <b style={styleDisruptionTitle}> Currencies:</b> {info.currencies.map((el,index)=> <span key={el.name} style={{marginRight: '0.3rem'}}>
+                        {el.name}{index === info.languages.length - 1 ? " " : ","}{' '}
+                    </span>)}
             </span>
             <span>
                 <b style={styleDisruptionTitle}> Capital:</b> {info.capital}
