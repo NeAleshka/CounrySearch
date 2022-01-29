@@ -4,7 +4,7 @@ import Main from "./Components/Main";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import Details from "./pages/Details";
-import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import axios from "axios";
 import {ALL_COUNTRIES} from "./config";
 
@@ -23,12 +23,14 @@ function App() {
         if (!countries.length)
             axios.get<getCountryType[]>(ALL_COUNTRIES).then(({data}) => {
                     setCountries(data)})
+        // eslint-disable-next-line
     }, [])
 
     useEffect(()=>{
         if(countries.length){
             handlerSearch('','')
         }
+        // eslint-disable-next-line
     },[countries])
 
 

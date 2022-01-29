@@ -38,7 +38,7 @@ const Controls = (props: ControlsType) => {
 
     useEffect(() => {
         props.handlerSearch(search, region?.value ?? '')
-
+        // eslint-disable-next-line 
     }, [search, region])
 
     return (
@@ -48,6 +48,7 @@ const Controls = (props: ControlsType) => {
                            isSearchable={false}
                            value={region?.value === '' ? null : region}
                            onChange={(e) => {
+                               console.log(e)
                                setRegion(e as OptionType)
                            }}
             />

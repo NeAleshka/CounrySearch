@@ -1,8 +1,5 @@
 import Select from "react-select";
 import styled from "styled-components";
-import {OptionType} from "./Controls";
-
-
 
 
 export const SelectCountry = styled(Select).attrs({
