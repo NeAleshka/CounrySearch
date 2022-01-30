@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/CounrySearch/static/css/main.f5d586fd.css",
-    "main.js": "/CounrySearch/static/js/main.adb0933a.js",
-    "index.html": "/CounrySearch/index.html",
-    "main.f5d586fd.css.map": "/CounrySearch/static/css/main.f5d586fd.css.map",
-    "main.adb0933a.js.map": "/CounrySearch/static/js/main.adb0933a.js.map"
+    "main.css": "/CounrySearch-Project-/static/css/main.f5d586fd.css",
+    "main.js": "/CounrySearch-Project-/static/js/main.3f164475.js",
+    "index.html": "/CounrySearch-Project-/index.html",
+    "main.f5d586fd.css.map": "/CounrySearch-Project-/static/css/main.f5d586fd.css.map",
+    "main.3f164475.js.map": "/CounrySearch-Project-/static/js/main.3f164475.js.map"
   },
   "entrypoints": [
     "static/css/main.f5d586fd.css",
-    "static/js/main.adb0933a.js"
+    "static/js/main.3f164475.js"
   ]
 }
